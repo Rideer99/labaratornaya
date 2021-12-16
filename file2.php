@@ -2,7 +2,17 @@
 require_once 'connect.php';
 ?>
 <form action="file2.php" method="GET">
-Введите данные которые хотите искать из таблицы ( имя приемщика: ) <input type="text" name="NameAvtor"><br>
+Выбирите данные для поиска(имя поставщика): <SELECT name="NameAvtor">
+<?php
+$result = mysqli_query($link,"SELECT
+ priemshiki.priemshik
+ FROM priemshiki");
+$rows = mysqli_fetch_all($result,MYSQLI_ASSOC);
+foreach ($rows as $row)
+{
+echo "<option>". ($row['priemshik']."</option>");
+}
+?>
 <input type="submit" name="submit" value="Поиск"><br>
 </form>
 

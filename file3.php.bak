@@ -2,7 +2,17 @@
 require_once 'connect.php';
 ?>
 <form action="file3.php" method="GET">
-Введите данные которые хотите искать из таблицы ( имя приемщика: ) <input type="text" name="NameAvtor"><br>
+Введите данные которые хотите искать из таблицы ( имя приемщика: )<SELECT name="NameAvtor">
+<?php
+$result = mysqli_query($link,"SELECT
+ proizvodstvo.dataproizvodtva
+ FROM proizvodstvo");
+$rows = mysqli_fetch_all($result,MYSQLI_ASSOC);
+foreach ($rows as $row)
+{
+echo "<option>". ($row['dataproizvodtva']."</option>");
+}
+?>
 <input type="submit" name="submit" value="Поиск"><br>
 </form>
 
@@ -35,3 +45,4 @@ foreach($rows as $row)
 
 
 ?>
+<input type="submit" value="назад" onclick="location.href='book_autor.php';" />

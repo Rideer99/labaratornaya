@@ -16,4 +16,4 @@ VALUES (0,'$_GET[NameAvtor]','$_GET[NameAvtor2]','$_GET[NameAvtor3]')");
 }
 ?>
 
-<br><input type="submit" value="Назад" onclick="location.href='book_autor.php';" /></br>
+<br><input type="submit" value="запрос 1" onclick="location.href='book_autor.php';" /></br>
